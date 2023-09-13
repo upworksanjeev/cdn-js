@@ -201,7 +201,7 @@ window.fmlead = (settings) => {
       redirect: 'follow'
     };
     
-    fetch("http://localhost:3000/api/sampleApi", requestOptions)
+    fetch("https://nextjs-test-sage-delta.vercel.app/api/sampleApi", requestOptions)
       .then(response => response.text())
       .then(result => console.log(result))
       .catch(error => console.log('error', error));
