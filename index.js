@@ -118,7 +118,16 @@ window.fmlead = (settings) => {
   };
   const getRequest = async (requestUrl) => {
     if (requestUrl != "") {
-      var getResponse = await fetch(requestUrl, {
+      var requestOptions = {
+        method: 'POST',
+        redirect: 'follow'
+      };
+      
+      fetch(requestUrl, requestOptions)
+        .then(response => response.text())
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));
+      /*var getResponse = await fetch(requestUrl, {
         method: "GET"
       })
         .then((response) => {
@@ -137,7 +146,7 @@ window.fmlead = (settings) => {
         })
         .catch(function (error) {
           return error;
-        });
+        });*/
     } else {
       $this.settings.errorMessage.message = "Url is required!";
       return $this.settings.errorMessage;
@@ -173,8 +182,7 @@ window.fmlead = (settings) => {
       fetch(requestUrl, requestOptions)
         .then((response) => {
           if (response.ok) {
-            //getLastViewLink();
-            checkfunction();
+            getLastViewLink();
             return response.text();
           } else {
             throw new Error(
@@ -195,17 +203,7 @@ window.fmlead = (settings) => {
       return envObj().errorMessage;
     }
   };
-  const checkfunction = () => {
-    var requestOptions = {
-      method: 'POST',
-      redirect: 'follow'
-    };
-    
-    fetch("https://nextjs-test-sage-delta.vercel.app/api/sampleApi", requestOptions)
-      .then(response => response.text())
-      .then(result => console.log(result))
-      .catch(error => console.log('error', error));
-  }
+
   const dhjff = () => {
     console.log("this is test ");
   };
