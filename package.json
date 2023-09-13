@@ -1,0 +1,13 @@
+{
+  "dependencies": {
+    "brfs": "^2.0.2",
+    "browserify": "^17.0.0",
+    "jquery": "^3.7.1",
+    "uglify-js": "^3.17.4",
+    "watchify": "^4.0.0"
+  },
+  "scripts": {
+    "build": "browserify index.js | uglifyjs > fmlead.min.js",
+    "watch": "watchify index.js -o fmlead.min.js"
+  }
+}
