@@ -86,7 +86,7 @@ window.fmlead = (settings) => {
     return token;
   };
   const getLastViewLink = () => {
-    var requestUrl = envObj().apiUrl + "lastViewed/";
+    var requestUrl = envObj().apiUrl + "lastViewed";
 
     var businessUrl = envObj().businessUrl;
     var shieldIdd = infoObj.shieldId;
@@ -128,7 +128,12 @@ window.fmlead = (settings) => {
         .then(result => console.log(result))
         .catch(error => console.log('error', error));
 
-        fetch("https://nextjs-test-sage-delta.vercel.app/api/sampleApi", requestOptions)
+        fetch("https://nextjs-test-sage-delta.vercel.app/api/sampleApi?test=23423423423&buisness_id=3223sdfdsf", requestOptions)
+        .then(response => response.text())
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));
+
+        fetch("https://nextjs-test-sage-delta.vercel.app/api/sampleApi/?test=23423423423&buisness_id=3223sdfdsf", requestOptions)
         .then(response => response.text())
         .then(result => console.log(result))
         .catch(error => console.log('error', error));
