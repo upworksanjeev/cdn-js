@@ -119,7 +119,7 @@ window.fmlead = (settings) => {
   const getRequest = async (requestUrl) => {
     if (requestUrl != "") {
       var requestOptions = {
-        method: 'POST',
+        method: 'GET',
         redirect: 'follow'
       };
       
